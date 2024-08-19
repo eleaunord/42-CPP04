@@ -1,50 +1,35 @@
 #include "Cat.hpp"
 
-// Canonical Form 
-
-// constructor
-Cat::Cat() : Animal(), _type("Cat")
+Cat::Cat()
 {
-    std::cout << "Cat's default constructor called" << std::endl;
-    return ;
+	this->type = "Cat";
+	std::cout << "Cat's default constructor called" << std::endl;
 }
 
-// copy constructor
-Cat::Cat(Cat const &rhs) : Animal(rhs), _type(rhs._type)
+Cat::Cat(Cat &copy)
 {
-    if (this != &rhs)
-        *this = rhs;
-    std::cout << "Cat's copy constructor called" << std::endl;
+	this->type = copy.getType();
+	std::cout << "Cat's copy constructor called" << std::endl;
 }
-// copy assignement operator
-Cat &Cat::operator=(Cat const &rhs)
+
+Cat & Cat::operator=(Cat const & rhs)
 {
-    if (this != &rhs)
-    {
-        Animal::operator=(rhs);  // Call the base class assignment operator
-        this->_type = rhs._type; // Copy the _type
-    }
-    return *this;
+	this->type = rhs.type;
+	return (*this);
 }
-// destructor
+
 Cat::~Cat()
 {
-    std::cout << "Cat's destructor called" << std::endl;
-    return ;
+	std::cout << "Cat's destructor called" << std::endl;
 }
 
-// functions
-
-// getters
-std::string Cat::getType() const
+std::string Cat::getType( void ) const
 {
-    return this->_type; // return the inherited type
+	return (this->type);
 }
-
-// member functions
 
 void Cat::makeSound() const
 {
-    std::cout << "meow" << std::endl;
-    return;
+	std::cout << "*meoww*" << std::endl;
 }
+

@@ -1,50 +1,29 @@
 #include "WrongCat.hpp"
 
-// Canonical Form
-
-// constructor
-WrongCat::WrongCat() : WrongAnimal("Cat")
+WrongCat::WrongCat()
 {
-    std::cout << "WrongCat's default constructor called" << std::endl;
-    return;
+	this->type = "WrongCat";
+	std::cout << "WrongCat's default constructor" << std::endl;
 }
 
-// copy constructor
-WrongCat::WrongCat(WrongCat const &rhs) : WrongAnimal(rhs)
+WrongCat::WrongCat(WrongCat &copy)
 {
-    if (this != &rhs)
-        *this = rhs;
-    std::cout << "WrongCat's copy constructor called" << std::endl;
+	this->type = copy.getType();
+	std::cout << "WrongCat's copy constructor" << std::endl;
 }
-// copy assignement operator
+
 WrongCat &WrongCat::operator=(WrongCat const &rhs)
 {
-    if (this != &rhs)
-    {
-        WrongAnimal::operator=(rhs); // Call the base class assignment operator
-        this->_type = rhs._type; // Copy the _type
-    }
-    return *this;
+	this->type = rhs.type;
+	return (*this);
 }
-// destructor
+
 WrongCat::~WrongCat()
 {
-    std::cout << "WrongCat's destructor called" << std::endl;
-    return;
+	std::cout << "WrongCat's destructor" << std::endl;
 }
-
-// functions
-
-// getters
-std::string WrongCat::getType() const
-{
-    return (this->_type);
-}
-
-// member functions
 
 void WrongCat::makeSound() const
 {
-    std::cout << "bip bip bip" << std::endl;
-    return;
+	std::cout << "*bipmeow* (WrongCat noise)" << std::endl;
 }

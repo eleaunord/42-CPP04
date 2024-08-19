@@ -1,60 +1,38 @@
+
 #include "WrongAnimal.hpp"
 
-// Canonical Form
-
-// default constructor
-WrongAnimal::WrongAnimal(void) : type("Wrong")
+WrongAnimal::WrongAnimal()
 {
-    std::cout << "WrongAnimal's default constructor called" << std::endl;
-    return;
+	std::cout << "WrongAnimal's default constructor" << std::endl;
+	this->type = "WrongAnimal";
 }
 
-// parameterized constructor
-WrongAnimal::WrongAnimal(std::string const &str) : type(str)
+
+
+WrongAnimal::WrongAnimal(WrongAnimal &copy)
 {
-    std::cout << "WrongAnimal's parameterized constructor called" << std::endl;
-    return;
+	this->type = copy.type;
+	std::cout << "WrongAnimal's copy constructor" << std::endl;
 }
 
-// copy constructor
-WrongAnimal::WrongAnimal(WrongAnimal const &rhs)
-{
-    if (this != &rhs)
-        *this = rhs;
-    std::cout << "WrongAnimal's copy constructor called" << std::endl;
-}
-
-// copy assignement operator
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs)
 {
-    std::cout << "WrongAnimal's assignation operator called" << std::endl;
-    if (this != &rhs)
-    {
-        this->type = rhs.type;
-    }
-    return *this;
+	this->type = rhs.type;
+	return (*this);
 }
 
-// destructor
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << "WrongAnimal's destructor called" << std::endl;
-    return;
+	std::cout << "WrongAnimal's destructor" << std::endl;
 }
 
-// Functions
-
-// Getters
-
-std::string WrongAnimal::getType() const
+std::string WrongAnimal::getType( void ) const
 {
-    return (this->type);
+	return (this->type);
 }
-
-// Member function
 
 void WrongAnimal::makeSound() const
 {
-    std::cout << "WrongAnimal sound" << std::endl;
-    return;
+	std::cout << "*bip bip bip* (WrongAnimal noise)" << std::endl;
 }
+

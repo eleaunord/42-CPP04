@@ -1,30 +1,20 @@
-#ifndef WrongCat_HPP
-#define WrongCat_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include <iostream>
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal
+class WrongCat: public WrongAnimal
 {
-private:
-    std::string _type; // encapsulation
+	protected:
+		std::string	type;
 
-public:
-    // constructors
-    WrongCat();               // default
-    WrongCat(WrongCat const &rhs); // copy
+	public:
+		WrongCat();
+		WrongCat(WrongCat &copy);
+		WrongCat &operator=(WrongCat const &rhs);
+		~WrongCat();
 
-    // operators
-    WrongCat &operator=(WrongCat const &rhs);
-
-    // destructors
-    ~WrongCat();
-
-    // getters
-    std::string getType() const;
-
-    // Member functions
-    void makeSound() const;
+		void makeSound() const;
 };
 
 #endif

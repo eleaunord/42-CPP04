@@ -1,60 +1,39 @@
 #include "Animal.hpp"
 
-// Canonical Form
-
-// default constructor
-Animal::Animal(void) : type("Unknown")
+// constructors
+Animal::Animal()
 {
-    std::cout << "Animal's default constructor called" << std::endl;
-    return ;
+	this->type = "Unknown animal";
+	std::cout << "Animal Default Constructor called" << std::endl;
 }
-
-// parameterized constructor
-Animal::Animal(std::string const &str) : type(str)
+Animal::Animal(Animal &copy)
 {
-    std::cout << "Animal's parameterized constructor called" << std::endl;
-    return;
+	this->type = copy.type;
+	std::cout << "Animal's copy constructor called" << std::endl;
 }
-
-// copy constructor
-Animal::Animal(Animal const &rhs)
-{ 
-    if (this != &rhs)
-        *this = rhs;
-    std::cout << "Animal's copy constructor called" << std::endl;
-}
-
-// copy assignement operator
+// assignation operator
 Animal &Animal::operator=(Animal const &rhs)
 {
-    std::cout << "Animal's assignation operator called" << std::endl;
-    if (this != &rhs)
-    {
-        this->type = rhs.type;
-    }
-    return *this;
+	this->type = rhs.type;
+	return (*this);
 }
 
 // destructor
 Animal::~Animal()
 {
-    std::cout << "Animal's destructor called" << std::endl;
-    return;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
-// Functions
-
-// Getters
-
-std::string Animal::getType() const
+// getter function
+std::string Animal::getType( void ) const
 {
-    return (this->type);
+	return (this->type);
 }
 
-// Member function
+// member function 
 
 void Animal::makeSound() const
 {
-    std::cout << "Animal sound" << std::endl;
-    return ;
+	std::cout << "*brOOAAAwww* (unknown animal noise) " << std::endl;
 }
+
