@@ -8,16 +8,16 @@ WrongAnimal::WrongAnimal()
 }
 
 
-
-WrongAnimal::WrongAnimal(WrongAnimal &copy)
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
 	this->type = copy.type;
 	std::cout << "WrongAnimal's copy constructor" << std::endl;
 }
 
-WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs)
 {
-	this->type = rhs.type;
+	if (this != &rhs)
+		this->type = rhs.type;
 	return (*this);
 }
 

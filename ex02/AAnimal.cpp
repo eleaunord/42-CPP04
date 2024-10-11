@@ -6,13 +6,13 @@ AAnimal::AAnimal()
 	this->type = "Unknown AAnimal";
 	std::cout << "AAnimal's default constructor called" << std::endl;
 }
-AAnimal::AAnimal(AAnimal &copy)
+AAnimal::AAnimal(const AAnimal& copy) : type(copy.type)
 {
 	this->type = copy.type;
 	std::cout << "AAnimal's copy constructor called" << std::endl;
 }
 // assignation operator
-AAnimal &AAnimal::operator=(AAnimal const &rhs)
+AAnimal &AAnimal::operator=(const AAnimal &rhs)
 {
 	this->type = rhs.type;
 	return (*this);

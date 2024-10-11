@@ -7,7 +7,7 @@ Cat::Cat()
 	std::cout << "Cat's default constructor called" << std::endl;
 }
 
-Cat::Cat(Cat &copy)
+Cat::Cat(const Cat &copy) : AAnimal(copy)
 {
 	this->_brain = new Brain(*copy._brain); // Deep copy the Brain
 	this->type = copy.getType();
@@ -16,7 +16,9 @@ Cat::Cat(Cat &copy)
 
 Cat & Cat::operator=(Cat const & rhs)
 {
-	this->type = rhs.type;
+    if (this != &rhs) {
+        AAnimal::operator=(rhs);
+    }
 	return (*this);
 }
 

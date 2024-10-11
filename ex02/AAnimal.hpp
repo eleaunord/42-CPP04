@@ -10,7 +10,7 @@ class AAnimal
 
 	public:
 		AAnimal();
-		AAnimal(AAnimal &copy);
+		AAnimal(const AAnimal &copy);
 		AAnimal &operator=(const AAnimal &rhs);
 		virtual ~AAnimal();
 

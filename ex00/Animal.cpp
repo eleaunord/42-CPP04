@@ -6,15 +6,16 @@ Animal::Animal()
 	this->type = "Unknown animal";
 	std::cout << "Animal Default Constructor called" << std::endl;
 }
-Animal::Animal(Animal &copy)
+// nb ; a copy constructor whould not modify the object being copied so it should take a cte reference
+Animal::Animal(const Animal& copy) : type(copy.type)
 {
-	this->type = copy.type;
-	std::cout << "Animal's copy constructor called" << std::endl;
+    std::cout << "Animal's copy constructor called" << std::endl;
 }
 // assignation operator
-Animal &Animal::operator=(Animal const &rhs)
+Animal &Animal::operator=(const Animal &rhs)
 {
-	this->type = rhs.type;
+	if (this != &rhs)
+		this->type = rhs.type;
 	return (*this);
 }
 

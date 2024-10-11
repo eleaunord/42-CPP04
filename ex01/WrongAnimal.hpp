@@ -1,7 +1,7 @@
 #ifndef WRONG_ANIMAL_HPP
 # define WRONG_ANIMAL_HPP
 
-#include <iostream>
+# include <iostream>
 
 
 class WrongAnimal
@@ -11,8 +11,8 @@ class WrongAnimal
 
 	public:
 		WrongAnimal();
-		WrongAnimal(WrongAnimal &copy);
-		WrongAnimal &operator=(WrongAnimal const &rhs);
+		WrongAnimal(const WrongAnimal &copy);
+		WrongAnimal &operator=(const WrongAnimal &rhs);
 		virtual ~WrongAnimal();
 
 		void makeSound() const;

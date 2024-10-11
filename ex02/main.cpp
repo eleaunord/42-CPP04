@@ -66,6 +66,7 @@ int main()
 	std::cout << std::endl;
 	// if we uncomment the following line then we will have a compile time error bc we can't instantiate an abstract class
 	//AAnimal* mypony = new AAnimal();
+	//AAnimal test; 
 
 	return 0;
 }

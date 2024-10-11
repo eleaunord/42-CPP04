@@ -6,15 +6,18 @@ WrongCat::WrongCat()
 	std::cout << "WrongCat's default constructor" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat &copy)
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy)
 {
 	this->type = copy.getType();
 	std::cout << "WrongCat's copy constructor" << std::endl;
 }
 
-WrongCat &WrongCat::operator=(WrongCat const &rhs)
+WrongCat &WrongCat::operator=(const WrongCat &rhs)
 {
-	this->type = rhs.type;
+    if (this != &rhs) {
+        WrongAnimal::operator=(rhs);  // base class assignment operator
+        // don't need to assign type again because Animal::operator= will do it
+    }
 	return (*this);
 }
 
