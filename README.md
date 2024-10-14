@@ -76,6 +76,8 @@ virtual void makeSound() const = 0;
 
 In practice :
 
+virtual destructor for AAnimal so that we are sure that when the destructors of the derived classes (like Cat or Dog) are called the pointer to AAnimal is deleted otherwise we will have leaks or undefined behaviour.
+
 Difference btwn Dog dog; and AAnimal *mydog = new Dog();
 	Dog dog;
 	- creates a Dog object on the stack
