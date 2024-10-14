@@ -100,7 +100,11 @@ AAnimal *mydog = new Dog();
 ## Exercise 03: Interface & recap
 
 The goal of this exercise is to implement and understand the concept of interfaces in C++ through the use of pure abstract classes. 
+An interface is a construct that defines a contract for classe, specifying what functions they must implement w/t providing the implementations itself. An interface can be created using pure abstract classes (a class that contains at least one pure virtual function).
+An interface cannot be instantiated directly bc of its pure virtual function(s). Only classes that inherit from the interface and provide concrete implementations for all pure virtual functions can be instantiated.
 
+_Tests_
 
+NB : to chek if we're doing a deep copy of a Character, we need to ensure that when we are copying a Character we are not just copying the pointers to the AMateria objects in the inventory but creating entirely new copies of the AMateria objects themselves. After a copy is made, changes to the AMateria objects in the original character should not affect the AMateria objects in the copied character and vice versa.
 
 
